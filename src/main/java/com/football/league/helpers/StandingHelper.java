@@ -8,12 +8,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StandingHelper {
-	public StandingResponse buildStandingResponse(Standing standing, Team team) {
-		StandingResponse standingResponse = new StandingResponse();
-		standingResponse.getTeamStandingList().add(TeamStanding.builder()
-			.teamName(team.getName())
-			.standing(standing.getStand())
-			.build());
-		return standingResponse;
-	}
+    public StandingResponse buildStandingResponse(Standing standing, Team team) {
+        StandingResponse standingResponse = new StandingResponse();
+        standingResponse.getTeamStandingList().add(TeamStanding.builder()
+                .teamName(team.getName())
+                .teamId(team.getId().toString())
+                .standing(standing.getStand())
+                .build());
+        return standingResponse;
+    }
 }
